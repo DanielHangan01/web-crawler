@@ -1,14 +1,13 @@
 function printReport(pages) {
-    console.log('==========')
-    console.log('REPORT')
-    console.log('==========')
+    console.log('============================================')
+    console.log('------------------REPORT--------------------')
+    console.log('============================================')
     const sortedPages = sortPages(pages)
     for (const sortedPage of sortedPages) {
         const url = sortedPage[0]
         const cnt = sortedPage[1]
         console.log(`Found ${cnt} internal links to ${url}`)
     }
-
 }
 
 function sortPages(pages) {
@@ -20,6 +19,5 @@ function sortPages(pages) {
 }
 
 module.exports = {
-    printReport,
-    sortPages
+    printReport
 }

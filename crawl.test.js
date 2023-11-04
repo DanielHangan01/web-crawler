@@ -1,8 +1,6 @@
 const { normalizeURL } = require('./crawl.js')
 const { getURLsFromHTML } = require('./crawl.js')
-const { crawlPage } = require('./crawl.js')
 const { test, expect } = require('@jest/globals')
-const { JSDOM } = require('jsdom')
 
 test('normalizeURL strip trailing slash', () => {
     const input = 'https://blog.boot.dev/path/'

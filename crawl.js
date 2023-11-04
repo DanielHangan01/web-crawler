@@ -69,12 +69,12 @@ async function crawlPage(baseURL, currentURL, pages) {
             return pages
         }
         htmlBody = await resp.text()
+        const nextURLs = getURLsFromHTML(htmlBody, baseURL)
+        for (const nextURL of nextURLs) {
+            pages = await crawlPage(baseURL, nextURL, pages)
+        }
     } catch (err) {
         console.log(`Error in fetch: ${err.message}, on page: ${currentURL}`)
-    }
-    const nextURLs = getURLsFromHTML(htmlBody, baseURL)
-    for (const nextURL of nextURLs) {
-        pages = await crawlPage(baseURL, nextURL, pages)
     }
     return pages
 }
